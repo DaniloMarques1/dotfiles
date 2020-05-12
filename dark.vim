@@ -18,17 +18,17 @@ let g:colors_name = "simple-dark"
 
 if has("gui_running") || &t_Co == 256
     hi NonText cterm=NONE ctermfg=black ctermbg=black gui=NONE guifg=bg guibg=#0a0a0a
-    hi Normal cterm=NONE ctermfg=245 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi Keyword cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi Constant cterm=NONE ctermfg=252 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
+    hi Normal cterm=NONE ctermfg=247 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi Keyword cterm=bold ctermfg=250 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi Constant cterm=NONE ctermfg=251 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
     hi String cterm=NONE ctermfg=97 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi Comment cterm=NONE ctermfg=125 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
-    hi Number cterm=NONE ctermfg=255  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
+    hi Comment cterm=italic ctermfg=125 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
+    hi Number cterm=NONE ctermfg=108  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
     hi LineNr cterm=NONE ctermfg=240  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
     hi Error cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi ErrorMsg cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi Search cterm=NONE ctermfg=245 ctermbg=Gray gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi IncSearch cterm=reverse ctermfg=255 ctermbg=245 gui=reverse guifg=#eeeeee guibg=#0a0a0a
+    hi IncSearch cterm=bold ctermfg=255 ctermbg=183 gui=reverse guifg=#eeeeee guibg=#0a0a0a
     hi DiffChange cterm=NONE ctermfg=240 ctermbg=255 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi DiffText cterm=bold ctermfg=255 ctermbg=DarkGray gui=bold guifg=#bcbcbc guibg=#0a0a0a
     hi SignColumn cterm=NONE ctermfg=240 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
@@ -48,6 +48,18 @@ if has("gui_running") || &t_Co == 256
     hi TermCursor cterm=reverse ctermfg=NONE ctermbg=NONE gui=reverse guifg=NONE guibg=NONE
     hi Boolean cterm=NONE ctermfg=202 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi Title cterm=NONE ctermfg=160 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi mkdBold cterm=bold ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi mkdListItem cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi mkdListItemLine cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlBold cterm=bold ctermfg=253 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlItalic cterm=bold ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH1 cterm=bold ctermfg=160 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH2 cterm=bold ctermfg=161 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH3 cterm=bold ctermfg=162 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH4 cterm=bold ctermfg=163 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi jsNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi cNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi cNumbers cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
 else
     hi Normal cterm=NONE ctermfg=Gray ctermbg=Black
     hi Keyword cterm=NONE ctermfg=White ctermbg=Black
@@ -107,7 +119,7 @@ highlight! link Repeat Keyword
 highlight! link Special Keyword
 highlight! link SpecialChar Keyword
 highlight! link StorageClass Keyword
-highlight! link SpecialComment String
+"highlight! link SpecialComment String
 highlight! link CursorLineNr String
 highlight! link Character Number
 highlight! link Float Number
