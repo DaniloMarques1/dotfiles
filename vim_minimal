@@ -1,8 +1,7 @@
 let mapleader = " "
 
-syntax on
-set background=dark
 colorscheme dark
+
 set number
 set incsearch
 set shiftwidth=2
@@ -16,7 +15,12 @@ set smartindent
 set clipboard=unnamedplus "use system clipboard by default
 
 noremap :W :w
+noremap <leader>h :bnext<cr>
+noremap <leader>l :bprev<cr>
 noremap <leader>t :terminal<cr>
-noremap <leader>e :Explore<cr>
-noremap <leader>l :bnext<cr>
-noremap <leader>h :bprev<cr>
+noremap <leader>j 5j<cr>
+noremap <leader>k 5k<cr>
+"open the file in a new buffer
+noremap <leader>fe :Explore<cr>
+"open the file in the current buffer
+noremap <leader>e :bd\| :Explore<cr>

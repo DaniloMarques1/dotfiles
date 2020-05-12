@@ -2,8 +2,8 @@
 " Name:       simple-dark
 " Maintainer: Devon / Tek256 <Devon@tek256.com>
 " Homepage:   https://github.com/tek256/simple-dark
-" Note: This originally started as a fork of 256_noir.vim
-" Basically: dark background, with different shades of gray.
+" Note:       This originally started as a fork of 256_noir.vim
+" Basically:  dark background, with different shades of gray.
 
 highlight clear
 set background=dark
@@ -19,8 +19,8 @@ let g:colors_name = "simple-dark"
 if has("gui_running") || &t_Co == 256
     hi NonText cterm=NONE ctermfg=black ctermbg=black gui=NONE guifg=bg guibg=#0a0a0a
     hi Normal cterm=NONE ctermfg=247 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi Keyword cterm=bold ctermfg=250 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi Constant cterm=NONE ctermfg=251 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
+    hi Keyword cterm=NONE ctermfg=254 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi Constant cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
     hi String cterm=NONE ctermfg=97 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi Comment cterm=italic ctermfg=125 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
     hi Number cterm=NONE ctermfg=108  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
