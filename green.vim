@@ -13,48 +13,48 @@ let g:colors_name = "dark"
 
 if has("gui_running") || &t_Co == 256
     hi NonText cterm=NONE ctermfg=black ctermbg=black gui=NONE guifg=bg guibg=#0a0a0a
-    hi Normal cterm=NONE ctermfg=247 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi Keyword cterm=NONE ctermfg=252 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi Constant cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
-    hi String cterm=NONE ctermfg=97 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi Comment cterm=italic ctermfg=132 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
-    hi Number cterm=NONE ctermfg=108  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
-    hi LineNr cterm=NONE ctermfg=240  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
-    hi Error cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi ErrorMsg cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi Search cterm=NONE ctermfg=245 ctermbg=Gray gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi IncSearch cterm=bold ctermfg=255 ctermbg=183 gui=reverse guifg=#eeeeee guibg=#0a0a0a
-    hi DiffChange cterm=NONE ctermfg=240 ctermbg=255 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi DiffText cterm=bold ctermfg=255 ctermbg=DarkGray gui=bold guifg=#bcbcbc guibg=#0a0a0a
-    hi SignColumn cterm=NONE ctermfg=240 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
-    hi SpellBad cterm=undercurl ctermfg=255 ctermbg=245 gui=undercurl guifg=#eeeeee guibg=#0a0a0a
-    hi SpellCap cterm=NONE ctermfg=255 ctermbg=124 gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi SpellRare cterm=NONE ctermfg=240 ctermbg=16 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi Normal cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi Keyword cterm=bold ctermfg=40 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi Constant cterm=NONE ctermfg=40 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
+    hi String cterm=NONE ctermfg=190 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi Comment cterm=italic ctermfg=22 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
+    hi Number cterm=NONE ctermfg=2  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
+    hi LineNr cterm=NONE ctermfg=2  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
+    hi Error cterm=NONE ctermfg=2 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi ErrorMsg cterm=NONE ctermfg=2 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi Search cterm=NONE ctermfg=2 ctermbg=Gray gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi IncSearch cterm=bold ctermfg=2 ctermbg=183 gui=reverse guifg=#eeeeee guibg=#0a0a0a
+    hi DiffChange cterm=NONE ctermfg=46 ctermbg=255 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi DiffText cterm=bold ctermfg=46 ctermbg=DarkGray gui=bold guifg=#bcbcbc guibg=#0a0a0a
+    hi SignColumn cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi SpellBad cterm=undercurl ctermfg=2 ctermbg=245 gui=undercurl guifg=#eeeeee guibg=#0a0a0a
+    hi SpellCap cterm=NONE ctermfg=2 ctermbg=124 gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi SpellRare cterm=NONE ctermfg=2 ctermbg=16 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi WildMenu cterm=NONE ctermfg=240 ctermbg=255 gui=NONE guifg=#585858 guibg=#0a0a0a
     hi Pmenu cterm=NONE ctermfg=255 ctermbg=240 gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi PmenuThumb cterm=NONE ctermfg=232 ctermbg=240 gui=NONE guifg=#080808 guibg=#0a0a0a
     hi SpecialKey cterm=NONE ctermfg=16 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi MatchParen cterm=NONE ctermfg=200 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi MatchParen cterm=NONE ctermfg=47 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi CursorLine cterm=NONE ctermfg=NONE ctermbg=233 gui=NONE guifg=NONE guibg=#0a0a0a
     hi StatusLine cterm=bold,reverse ctermfg=245 ctermbg=black gui=bold,reverse guifg=#8a8a8a guibg=#0a0a0a
     hi StatusLineNC cterm=reverse ctermfg=236 ctermbg=black gui=reverse guifg=#303030 guibg=#0a0a0a
-    hi Visual cterm=reverse ctermfg=255 ctermbg=black gui=reverse guifg=#bcbcbc guibg=#0a0a0a
+    hi Visual cterm=reverse ctermfg=40 ctermbg=black gui=reverse guifg=#bcbcbc guibg=#0a0a0a
     hi VertSplit cterm=NONE ctermfg=Gray ctermbg=black gui=NONE guifg=#0a0a0a guibg=#0a0a0a
     hi TermCursor cterm=reverse ctermfg=NONE ctermbg=NONE gui=reverse guifg=NONE guibg=NONE
     hi Boolean cterm=NONE ctermfg=124 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi Title cterm=NONE ctermfg=160 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi mkdBold cterm=NONE ctermfg=65 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi mkdBold cterm=NONE ctermfg=190 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi mkdListItem cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi mkdListItemLine cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi htmlBold cterm=bold ctermfg=65 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlBold cterm=NONE ctermfg=190 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi htmlItalic cterm=bold ctermfg=65 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi htmlH1 cterm=bold ctermfg=53 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi htmlH2 cterm=bold ctermfg=55 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi htmlH3 cterm=bold ctermfg=56 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi htmlH4 cterm=bold ctermfg=60 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi javascriptNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi cNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi cNumbers cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH1 cterm=bold ctermfg=76 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH2 cterm=bold ctermfg=77 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH3 cterm=bold ctermfg=78 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi htmlH4 cterm=bold ctermfg=82 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi javascriptNumber cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi cNumber cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi cNumbers cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
 else
     hi Normal cterm=NONE ctermfg=Gray ctermbg=Black
     hi Keyword cterm=NONE ctermfg=White ctermbg=Black

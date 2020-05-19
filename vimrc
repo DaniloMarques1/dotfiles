@@ -1,14 +1,11 @@
 call plug#begin('~/.vim/plugged')
   Plug 'peitalin/vim-jsx-typescript'
   Plug 'https://github.com/MaxMEllon/vim-jsx-pretty.git'
-  Plug 'sheerun/vim-polyglot' "improve syntax highlight
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'https://github.com/joshdick/onedark.vim.git'
 call plug#end()
 
 let mapleader = " "
-set background=dark
-colorscheme dark
+colorscheme green
 set clipboard=unnamedplus "use system clipboard by default
 
 set number
@@ -20,25 +17,35 @@ set expandtab
 set nobackup
 set nowritebackup
 set noswapfile
+
+noremap :W :w
 noremap <leader>h :bnext<cr>
 noremap <leader>l :bprev<cr>
 noremap <leader>t :terminal<cr>
-noremap <leader>e :Explore<cr>
+noremap <leader>j 5j<cr>
+noremap <leader>k 5k<cr>
+"open the file in a new buffer
+noremap <leader>fe :Explore<cr>
+"open the file in the current buffer
+noremap <leader>e :bd\| :Explore<cr>
 
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
+nnoremap <C-p> :edit 
+nnoremap <C-b> :buffers<cr>
 
 " coc vim commands
-
 set hidden
 set shortmess+=c
 " show  warnings for nonused vars, error, etc
-"set signcolumn=yes "eu prefiro quando afasta o texto para mostrar o erro
+set signcolumn=yes "eu prefiro quando afasta o texto para mostrar o erro
 " makes tab navigates through autocomplete options
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
+"inoremap <silent><expr> <c> coc#refresh()
+"inoremap <c-c> coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
   let col = col('.') - 1
