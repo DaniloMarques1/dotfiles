@@ -1,4 +1,5 @@
 let mapleader = " "
+
 colorscheme green
 set clipboard=unnamedplus "use system clipboard by default
 
@@ -25,4 +26,4 @@ noremap <leader>fe :Explore<cr>
 noremap <leader>e :bd\| :Explore<cr>
 
 nnoremap <C-p> :edit 
-nnoremap <C-b> :buffers<cr>
+nnoremap <C-b> :b <C-d>
