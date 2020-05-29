@@ -1,0 +1,6 @@
+# DP-2 e o monitor estou mapeando o dispositivo wacom 9 e 18
+# para saber o monitor digitamos xrandr --listactivemonitors
+# 9 e 18 sao os ids dos dispositivos wacom, para saber usamos o
+# -xsetwacom --list devices
+xsetwacom set "9" MapToOutput DP-2
+xsetwacom set "18" MapToOutput DP-2
