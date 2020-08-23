@@ -18,18 +18,25 @@ endfunction
 " trigger completition whe npress C-f
 inoremap <silent><expr> <C-f> coc#refresh()
 
-" show documentation
-"nnoremap <silent> M :call <SID>show_documentation()<CR> 
-"function! s:show_documentation()
-"  if (index(['vim','help'], &filetype) >= 0)
-"    execute 'h '.expand('<cword>')
-"  else
-"    call CocAction('doHover')
-"  endif
-"endfunction
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " go to definition
 nmap <silent> gd <Plug>(coc-definition)
+
+" go to references
+nmap <silent> gr <Plug>(coc-references)
+
+
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.

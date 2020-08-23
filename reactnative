@@ -1,0 +1,35 @@
+expo-print         - geracao do pdf
+  Gera o pdf e salva no cache do app - retorna a uri do arquivo gerado
+  usar o expo-sharing para fazer o compartilhamento, ele aceita uma uri
+
+  Expo unimodules
+    seguir documentacao https://docs.expo.io/bare/installing-unimodules/#installation
+    mas basicamente eh incluir o pacote do unimodules
+    yarn add react-native-unimodules
+    e fazer alteracoes no MainApplication.java e no build.graddle
+
+react-native-share - para compartilhar
+
+
+
+Geracao de apk
+  Geracao de uma keystore utilizando o keytool (dentro da basta bin do jre).
+  passos:
+    senha
+    name
+
+  Copiar a keystore gerada para o diretorio android/app
+
+  ir no app/build.gradle e adicionar as informacoes de release
+
+  // dentro de signingConfigs
+  release {
+     storeFile file('danilo_apps.keystore')
+     storePassword 'danilo_apps'
+     keyAlias 'danilo_apps_alias'
+     keyPassword 'danilo_apps'
+  }
+
+  no diretorio de android
+  executar   ./gradlew assembleRelease e apk sera gerada no diretorio:
+  android/app/buid/outputs/apk/release
