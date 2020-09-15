@@ -14,6 +14,9 @@ react-native-share - para compartilhar
 
 Geracao de apk
   Geracao de uma keystore utilizando o keytool (dentro da basta bin do jre).
+
+  keytool -genkey -v -keystore your_key_name.keystore -alias your_key_alias -keyalg RSA -keysize 2048 -validity 10000
+
   passos:
     senha
     name
