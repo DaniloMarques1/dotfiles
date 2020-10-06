@@ -1,6 +1,8 @@
 set hidden
 set shortmess+=c
 set updatetime=300
+set nobackup
+set nowritebackup
 " show  warnings for nonused vars, error, etc
 set signcolumn=yes "eu prefiro quando afasta o texto para mostrar o erro
 " makes tab navigates through autocomplete options
@@ -36,6 +38,7 @@ nmap <silent> gd <Plug>(coc-definition)
 " go to references
 nmap <silent> gr <Plug>(coc-references)
 
+nmap <silent> gi <Plug>(coc-implementation)
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -45,3 +48,8 @@ nmap <silent> gr <Plug>(coc-references)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)<CR>
 nmap <leader>f  <Plug>(coc-format-selected)<CR>
+
+nmap <leader>rn <Plug>(coc-rename)
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)

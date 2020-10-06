@@ -1,9 +1,19 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'git@github.com:sheerun/vim-polyglot.git'
+
+  Plug 'sheerun/vim-polyglot'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+
+  " lsp plugins
+  "Plug 'neovim/nvim-lspconfig'
+  "Plug 'nvim-lua/completion-nvim'
+  "Plug 'tjdevries/nlua.nvim'
+  "Plug 'tjdevries/lsp_extensions.nvim'
+
+
 call plug#end()
+
 
 let mapleader = " "
 

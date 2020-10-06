@@ -89,7 +89,7 @@ let s:colors.violet  = { 'gui': '#4e5166', 'cterm': 60  }
 let s:colors.blue    = { 'gui': '#195466', 'cterm': 24  }
 let s:colors.cyan    = { 'gui': '#33859E', 'cterm': 44  }
 let s:colors.green   = { 'gui': '#2aa889', 'cterm': 78  }
-let s:colors.comment = { 'gui': '#195466', 'cterm': 241  }
+let s:colors.comment = { 'gui': '#195466', 'cterm': 245  }
 let s:colors.todo    = { 'gui': '#195466', 'cterm': 164  }
 let s:colors.boolean = { 'gui': '#195466', 'cterm': 97  }
 

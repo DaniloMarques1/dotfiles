@@ -1,0 +1,18 @@
+# create mode
+xrandr --newmode "1600x900_60.00"  146.25  1600 1784 1960 2240  900 1053 1059 1089 -hsync +vsync\n
+
+# add mode
+xrandr --addmode eDP-1 1600x900_60.00
+
+# 1680x1050
+# create mode
+xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240 1050 1053 1059 1089 -hsync +vsync\n
+
+# add mode
+xrandr --addmode eDP-1 1680x1050_60.00
+
+# add to .xprofile the following lines
+#
+# #!/bin/sh
+#xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+#xrandr --addmode VGA-0 1680x1050_60.00
