@@ -4,13 +4,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-
-  " lsp plugins
-  "Plug 'neovim/nvim-lspconfig'
-  "Plug 'nvim-lua/completion-nvim'
-  "Plug 'tjdevries/nlua.nvim'
-  "Plug 'tjdevries/lsp_extensions.nvim'
-
+  Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -22,14 +16,15 @@ colorscheme colorscheme
 
 set number
 set incsearch
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=0
 set expandtab
 set nobackup
 set nowritebackup
 set smartindent
 set noswapfile
+set updatetime=100
 
 noremap :W :w
 noremap :Q :q
@@ -50,3 +45,4 @@ noremap <C-l> :noh<cr>
 noremap <C-p> :GFiles<cr>
 noremap <leader>p :Files<cr>
 noremap <leader>b :Buffers<cr>
+noremap <leader>ss :set syn=
