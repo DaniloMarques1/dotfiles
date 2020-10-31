@@ -20,7 +20,6 @@ endfunction
 " trigger completition whe npress C-f
 inoremap <silent><expr> <C-f> coc#refresh()
 
-
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -46,8 +45,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 "set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)<CR>
-nmap <leader>f  <Plug>(coc-format-selected)<CR>
+xmap <leader>f <Plug>(coc-format-selected)<CR>
+nmap <leader>f <Plug>(coc-format-selected)<CR>
 
 nmap <leader>rn <Plug>(coc-rename)
 

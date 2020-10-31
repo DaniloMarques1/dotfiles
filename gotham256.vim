@@ -43,6 +43,7 @@ function! s:Col(group, fg_name, ...)
 
   let pieces = [a:group]
 
+
   if a:fg_name !=# ''
     let pieces = s:AddGroundValues(pieces, 'fg', s:colors[a:fg_name])
   endif
@@ -53,6 +54,12 @@ function! s:Col(group, fg_name, ...)
 
   call s:Clear(a:group)
   call s:Highlight(pieces)
+
+  " NOTE: this could be better
+  if a:group == 'Comment'
+    call s:Highlight(['Comment', 'cterm=italic'])
+  endif
+
 endfunction
 
 function! s:Attr(group, attr)

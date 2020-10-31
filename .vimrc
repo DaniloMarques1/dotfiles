@@ -1,13 +1,9 @@
 call plug#begin('~/.vim/plugged')
-
-  Plug 'sheerun/vim-polyglot'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'airblade/vim-gitgutter'
-
+  Plug 'sheerun/vim-polyglot'
 call plug#end()
-
 
 let mapleader = " "
 
