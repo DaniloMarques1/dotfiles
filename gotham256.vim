@@ -60,6 +60,10 @@ function! s:Col(group, fg_name, ...)
     call s:Highlight(['Comment', 'cterm=italic'])
   endif
 
+  if a:group == 'String'
+    call s:Highlight(['String', 'cterm=italic'])
+  endif
+
 endfunction
 
 function! s:Attr(group, attr)
@@ -84,21 +88,22 @@ let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
 let s:colors.base5 = { 'gui': '#599cab', 'cterm': 81  }
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 122 }
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 250 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
 
 " Other colors.
-let s:colors.red     = { 'gui': '#c23127', 'cterm': 124 }
-let s:colors.orange  = { 'gui': '#d26937', 'cterm': 166 }
-let s:colors.yellow  = { 'gui': '#edb443', 'cterm': 214 }
-let s:colors.magenta = { 'gui': '#888ca6', 'cterm': 67  }
-let s:colors.violet  = { 'gui': '#4e5166', 'cterm': 60  }
-let s:colors.blue    = { 'gui': '#195466', 'cterm': 24  }
-let s:colors.cyan    = { 'gui': '#33859E', 'cterm': 44  }
-let s:colors.green   = { 'gui': '#2aa889', 'cterm': 78  }
-let s:colors.comment = { 'gui': '#195466', 'cterm': 245  }
-let s:colors.todo    = { 'gui': '#195466', 'cterm': 164  }
-let s:colors.boolean = { 'gui': '#195466', 'cterm': 97  }
+let s:colors.red          = { 'gui': '#c23127', 'cterm': 124 }
+let s:colors.orange       = { 'gui': '#d26937', 'cterm': 166 }
+let s:colors.yellow       = { 'gui': '#edb443', 'cterm': 214 }
+let s:colors.magenta      = { 'gui': '#888ca6', 'cterm': 67  }
+let s:colors.violet       = { 'gui': '#4e5166', 'cterm': 60  }
+let s:colors.blue         = { 'gui': '#195466', 'cterm': 24  }
+let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 44  }
+let s:colors.green        = { 'gui': '#2aa889', 'cterm': 78  }
+let s:colors.comment      = { 'gui': '#195466', 'cterm': 242  }
+let s:colors.todo         = { 'gui': '#195466', 'cterm': 164  }
+let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
+let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190  }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -172,7 +177,7 @@ call s:Col('NonText', 'blue')
 " Concealed stuff.
 call s:Col('Conceal', 'cyan', s:background)
 
-" TODO and similar tags.
+" TODO and similar tags. FIXME, NOTE
 call s:Col('Todo', 'todo', s:background)
 
 " The column separating vertical splits.
@@ -247,7 +252,7 @@ call s:Col('rubyStringDelimiter', 'green')
 " HTML (and often Markdown).
 call s:Col('htmlArg', 'blue')
 call s:Col('htmlItalic', 'magenta')
-call s:Col('htmlBold', 'cyan', '')
+call s:Col('htmlBold', 'yellow_light', '')
 
 " Python                                                                                                                   
 call s:Col('pythonStatement', 'blue')

@@ -14,15 +14,15 @@ let g:colors_name = "dark"
 if has("gui_running") || &t_Co == 256
     hi NonText cterm=NONE ctermfg=black ctermbg=black gui=NONE guifg=bg guibg=#0a0a0a
     hi Normal cterm=NONE ctermfg=247 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
-    hi Keyword cterm=NONE ctermfg=252 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
+    hi Keyword cterm=NONE ctermfg=254 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi Constant cterm=NONE ctermfg=255 ctermbg=black gui=NONE guifg=#d0d0d0 guibg=#0a0a0a
-    hi String cterm=NONE ctermfg=97 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi String cterm=italic ctermfg=97 ctermbg=black gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi Comment cterm=italic ctermfg=132 ctermbg=black gui=NONE guifg=#585858 guibg=#0a0a0a
     hi Number cterm=NONE ctermfg=108  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
     hi LineNr cterm=NONE ctermfg=240  ctermbg=black gui=NONE guifg=#ff0000 guibg=#0a0a0a
     hi Error cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi ErrorMsg cterm=NONE ctermfg=255 ctermbg=DarkGray gui=NONE guifg=#eeeeee guibg=#0a0a0a
-    hi Search cterm=NONE ctermfg=245 ctermbg=Gray gui=NONE guifg=#8a8a8a guibg=#0a0a0a
+    hi Search cterm=NONE ctermfg=0 ctermbg=190 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi IncSearch cterm=bold ctermfg=255 ctermbg=183 gui=reverse guifg=#eeeeee guibg=#0a0a0a
     hi DiffChange cterm=NONE ctermfg=240 ctermbg=255 gui=NONE guifg=#8a8a8a guibg=#0a0a0a
     hi DiffText cterm=bold ctermfg=255 ctermbg=DarkGray gui=bold guifg=#bcbcbc guibg=#0a0a0a
@@ -36,7 +36,6 @@ if has("gui_running") || &t_Co == 256
     hi SpecialKey cterm=NONE ctermfg=16 ctermbg=255 gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi MatchParen cterm=NONE ctermfg=200 ctermbg=black gui=NONE guifg=#eeeeee guibg=#0a0a0a
     hi CursorLine cterm=NONE ctermfg=NONE ctermbg=233 gui=NONE guifg=NONE guibg=#0a0a0a
-    hi StatusLine cterm=bold,reverse ctermfg=245 ctermbg=black gui=bold,reverse guifg=#8a8a8a guibg=#0a0a0a
     hi StatusLineNC cterm=reverse ctermfg=236 ctermbg=black gui=reverse guifg=#303030 guibg=#0a0a0a
     hi Visual cterm=reverse ctermfg=255 ctermbg=black gui=reverse guifg=#bcbcbc guibg=#0a0a0a
     hi VertSplit cterm=NONE ctermfg=Gray ctermbg=black gui=NONE guifg=#0a0a0a guibg=#0a0a0a
@@ -55,6 +54,7 @@ if has("gui_running") || &t_Co == 256
     hi javascriptNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi cNumber cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
     hi cNumbers cterm=NONE ctermfg=108 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
+    hi StatusLine cterm=NONE ctermfg=2 ctermbg=black gui=NONE guifg=#bcbcbc guibg=#0a0a0a
 else
     hi Normal cterm=NONE ctermfg=Gray ctermbg=Black
     hi Keyword cterm=NONE ctermfg=White ctermbg=Black
