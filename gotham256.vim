@@ -60,9 +60,9 @@ function! s:Col(group, fg_name, ...)
     call s:Highlight(['Comment', 'cterm=italic'])
   endif
 
-  if a:group == 'String'
-    call s:Highlight(['String', 'cterm=italic'])
-  endif
+  "if a:group == 'String'
+  "  call s:Highlight(['String', 'cterm=italic'])
+  "endif
 
 endfunction
 
@@ -87,8 +87,8 @@ let s:colors.base1 = { 'gui': '#11151c', 'cterm': 233 }
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
-let s:colors.base5 = { 'gui': '#599cab', 'cterm': 81  }
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 250 }
+let s:colors.base5 = { 'gui': '#599cab', 'cterm': 142  } " 81
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 254 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
 
 " Other colors.
@@ -98,12 +98,12 @@ let s:colors.yellow       = { 'gui': '#edb443', 'cterm': 214 }
 let s:colors.magenta      = { 'gui': '#888ca6', 'cterm': 67  }
 let s:colors.violet       = { 'gui': '#4e5166', 'cterm': 60  }
 let s:colors.blue         = { 'gui': '#195466', 'cterm': 24  }
-let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 44  }
+let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 46  }
 let s:colors.green        = { 'gui': '#2aa889', 'cterm': 78  }
-let s:colors.comment      = { 'gui': '#195466', 'cterm': 242  }
-let s:colors.todo         = { 'gui': '#195466', 'cterm': 164  }
+let s:colors.comment      = { 'gui': '#195466', 'cterm': 45  } " 242
+let s:colors.todo         = { 'gui': '#195466', 'cterm': 164 }
 let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
-let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190  }
+let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -138,7 +138,7 @@ call s:Col('CursorLine', '', 'base1')
 call s:Col('CursorColumn', '', 'base1')
 
 " Sign column, line numbers.
-call s:Col('LineNr', 'blue', s:linenr_background)
+call s:Col('LineNr', 'blue', s:background)
 call s:Col('CursorLineNr', 'base5', s:linenr_background)
 call s:Col('SignColumn', '', s:linenr_background)
 call s:Col('ColorColumn', '', s:linenr_background)

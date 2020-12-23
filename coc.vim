@@ -1,10 +1,6 @@
 set hidden
-set shortmess+=c
-set updatetime=300
-set nobackup
-set nowritebackup
-" show  warnings for nonused vars, error, etc
-set signcolumn=yes "eu prefiro quando afasta o texto para mostrar o erro
+set signcolumn=yes
+hi SignColumn ctermbg=0
 " makes tab navigates through autocomplete options
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -12,13 +8,14 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " trigger completition whe npress C-f
-inoremap <silent><expr> <C-f> coc#refresh()
+inoremap <silent><expr> <C-space> coc#refresh()
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -26,29 +23,31 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
 " go to definition
 nmap <silent> gd <Plug>(coc-definition)
+" Remap keys for applying codeAction to the current buffer.
 
-" go to references
-nmap <silent> gr <Plug>(coc-references)
+" imports, organize imports
+nmap <leader>i  <Plug>(coc-codeaction)
 
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <leader>r <Plug>(coc-rename)
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-"
-" Formatting selected code.
-xmap <leader>f <Plug>(coc-format-selected)<CR>
-nmap <leader>f <Plug>(coc-format-selected)<CR>
-
-nmap <leader>rn <Plug>(coc-rename)
-
+" jump to the errors
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif

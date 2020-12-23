@@ -1,0 +1,2 @@
+git log -p <fileName> -> see changes for a specific file
+git show <commitHash> -> see what was added/changed from a specific commit
