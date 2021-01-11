@@ -1,15 +1,4 @@
-"                      _____ _____ _____ _   _   ___  ___  ___
-"                     |  __ \  _  |_   _| | | | / _ \ |  \/  |
-"                     | |  \/ | | | | | | |_| |/ /_\ \| .  . |
-"                     | | __| | | | | | |  _  ||  _  || |\/| | -256
-"                     | |_\ \ \_/ / | | | | | || | | || |  | |
-"                      \____/\___/  \_/ \_| |_/\_| |_/\_|  |_/
-"
-" URL: https://github.com/whatyouhide/vim-gotham
-" Aurhor: Andrea Leopardi <an.leopardi@gmail.com>
-" Version: ϡ
-" License: MIT
-
+" Fork from Gotham: https://github.com/whatyouhide/vim-gotham
 
 " Bootstrap ===================================================================
 
@@ -132,6 +121,7 @@ let s:linenr_background = 'base1'
 
 " Everything starts here.
 call s:Col('Normal', 'base6', s:background)
+"call s:Col('Normal', 'base6', s:colors.blue)
 
 " Line, cursor and so on.
 call s:Col('Cursor', 'base1', 'base6')

@@ -9,8 +9,9 @@ let mapleader = " "
 syntax on
 colorscheme colorscheme
 
+"set nu
 set guicursor=
-set incsearch
+"set guicursor=n-v-c:block,i-ci:ver25,a:blinkon250-Cursor
 set expandtab
 set nobackup
 set nowritebackup
@@ -25,7 +26,6 @@ set shortmess+=c
 noremap :W :w
 noremap :Q :q
 noremap <leader>q :bd<cr>
-noremap <leader>ex :Explore<cr>
 noremap <C-l> :noh<cr>
 
 noremap <leader>ss :set syn=
@@ -43,11 +43,11 @@ noremap <silent> <C-Right> :tabnext<cr>
 noremap <silent> <C-Left> :tabprev<cr>
 
 " go stuff
-autocmd FileType go,c,cpp setlocal shiftwidth=8 tabstop=8 noexpandtab
-autocmd FileType java setlocal shiftwidth=4 tabstop=4
-autocmd FileType markdown setlocal textwidth=100
+autocmd FileType go setlocal shiftwidth=8 tabstop=8 noexpandtab
+
+autocmd FileType java,c,cpp setlocal shiftwidth=4 tabstop=4
+autocmd FileType markdown setlocal textwidth=100 signcolumn=no
 
 "" vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
