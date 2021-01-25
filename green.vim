@@ -32,7 +32,6 @@ function! s:Col(group, fg_name, ...)
 
   let pieces = [a:group]
 
-
   if a:fg_name !=# ''
     let pieces = s:AddGroundValues(pieces, 'fg', s:colors[a:fg_name])
   endif
@@ -64,7 +63,6 @@ function! s:Clear(group)
   exec 'highlight clear ' . a:group
 endfunction
 
-
 " Colors ======================================================================
 
 " Let's store all the colors in a dictionary.
@@ -72,12 +70,12 @@ let s:colors = {}
 
 " Base colors.
 let s:colors.base0 = { 'gui': '#0c1014', 'cterm': 232 }
-let s:colors.base1 = { 'gui': '#11151c', 'cterm': 233 }
+let s:colors.base1 = { 'gui': '#11151c', 'cterm': 234 } " 233
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
-let s:colors.base5 = { 'gui': '#599cab', 'cterm': 70  } " 81
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 254 }
+let s:colors.base5 = { 'gui': '#599cab', 'cterm': 70  } " 81 70 == green
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 252 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
 
 " Other colors.
@@ -93,7 +91,8 @@ let s:colors.comment      = { 'gui': '#195466', 'cterm': 45  } " 242
 let s:colors.todo         = { 'gui': '#195466', 'cterm': 164 }
 let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
 let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190 }
-let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 }
+let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 } " 128 == purple
+let s:colors.number       = { 'gui': '#195466', 'cterm': 91 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -140,7 +139,7 @@ call s:Col('Visual', '', 'base3')
 " Easy-to-guess code elements.
 call s:Col('Comment', 'comment')
 call s:Col('String', 'purple')
-call s:Col('Number', 'orange')
+call s:Col('Number', 'number')
 call s:Col('Statement', 'base5')
 call s:Col('Special', 'orange')
 call s:Col('Identifier', 'base5')
@@ -169,7 +168,7 @@ call s:Col('NonText', 'blue')
 call s:Col('Conceal', 'cyan', s:background)
 
 " TODO and similar tags. FIXME, NOTE
-call s:Col('Todo', 'todo', s:background)
+call s:Col('Todo', 'todo', s:background, s:linenr_background, s:linenr_background)
 
 " The column separating vertical splits.
 call s:Col('VertSplit', 'base2', s:linenr_background)
@@ -198,12 +197,12 @@ call s:Col('PmenuThumb', '', 'blue')
 " Command line stuff.
 call s:Col('ErrorMsg', 'red', 'base1')
 call s:Col('Error', 'red', 'base1')
-call s:Col('ModeMsg', 'blue')
+call s:Col('ModeMsg', 'base7', 'base1')
 call s:Col('WarningMsg', 'red')
 
 " Wild menu.
 " StatusLine determines the color of the non-active entries in the wild menu.
-call s:Col('StatusLine', 'base5', 'base2')
+call s:Col('StatusLine', 'base6', 'base2')
 call s:Col('WildMenu', 'base7', 'cyan')
 
 " The 'Hit ENTER to continue prompt'.
@@ -233,6 +232,9 @@ call s:Col('DiffSubname', 'blue')
 " Directories (e.g. netrw).
 call s:Col('Directory', 'cyan')
 
+" Coc
+call s:Col('CocErrorHighlight', 'red')
+
 
 " Programming languages and filetypes ==========================================
 
@@ -251,6 +253,9 @@ call s:Col('pythonStatement', 'blue')
 "go(lang)
 call s:Col('goRepeat', 'yellow_light')
 call s:Col('goConditional', 'yellow_light')
+
+call s:Col('Repeat', 'yellow_light')
+call s:Col('Conditional', 'yellow_light')
 
 " Plugin =======================================================================
 
@@ -277,3 +282,8 @@ let g:unite_source_grep_search_word_highlight = 'UniteGrep'
 unlet s:colors
 unlet s:background
 unlet s:linenr_background
+
+hi Normal ctermbg=NONE
+hi SignColumn ctermbg=234
+hi TabLineFill ctermbg=234
+hi Todo ctermbg=234

@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
   Plug 'vimwiki/vimwiki'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -36,9 +37,6 @@ noremap <Leader>f    :Files<CR>
 noremap <Leader>b    :Buffers<CR>
 noremap <Leader>st   :GFiles?<CR>
 
-nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-
 noremap <silent> <C-Right> :tabnext<cr>
 noremap <silent> <C-Left> :tabprev<cr>
 
@@ -51,3 +49,8 @@ autocmd FileType markdown setlocal textwidth=100 signcolumn=no
 "" vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+
+nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+set laststatus=0

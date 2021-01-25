@@ -1,6 +1,5 @@
 set hidden
 set signcolumn=yes
-hi SignColumn ctermbg=0
 " makes tab navigates through autocomplete options
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
