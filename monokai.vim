@@ -1,15 +1,15 @@
-" forked from:        https://github.com/crusoexia/vim-monokai
+" forked from:    https://github.com/crusoexia/vim-monokai
 
 if !has("gui_running") && &t_Co < 256
   finish
 endif
 
 if ! exists("g:monokai_gui_italic")
-    let g:monokai_gui_italic = 0
+  let g:monokai_gui_italic = 0
 endif
 
 if ! exists("g:monokai_term_italic")
-    let g:monokai_term_italic = 0
+  let g:monokai_term_italic = 0
 endif
 
 let g:monokai_termcolors = 256 " does not support 16 color term right now.
@@ -48,13 +48,13 @@ function! s:h(group, style)
     let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
   end
   execute "highlight" a:group
-    \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
-    \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
-    \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
-    \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
-    \ "ctermfg=" . l:ctermfg
-    \ "ctermbg=" . l:ctermbg
-    \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
+        \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
+        \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
+        \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
+        \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
+        \ "ctermfg=" . l:ctermfg
+        \ "ctermbg=" . l:ctermbg
+        \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
 endfunction
 
 " Palettes
@@ -71,11 +71,13 @@ let s:grey        = { "gui": "#8F908A", "cterm": "243" }
 let s:lightgrey   = { "gui": "#575b61", "cterm": "238" }
 let s:darkgrey    = { "gui": "#64645e", "cterm": "239" }
 let s:warmgrey    = { "gui": "#75715E", "cterm": "59" }
+let s:comment     = { "gui": "#75715E", "cterm": "45" }
 
 let s:pink        = { "gui": "#F92772", "cterm": "197" }
 let s:green       = { "gui": "#A6E22D", "cterm": "148" }
 let s:aqua        = { "gui": "#66d9ef", "cterm": "81" }
 let s:yellow      = { "gui": "#E6DB74", "cterm": "186" }
+let s:yellow_char = { "gui": "#E6DB74", "cterm": "165" }
 let s:orange      = { "gui": "#FD9720", "cterm": "208" }
 let s:purple      = { "gui": "#ae81ff", "cterm": "141" }
 let s:red         = { "gui": "#e73c50", "cterm": "196" }
@@ -118,10 +120,11 @@ call s:h("WarningMsg",    { "fg": s:red })
 call s:h("VertSplit",     { "fg": s:darkgrey,   "bg": s:darkblack })
 call s:h("LineNr",        { "fg": s:grey,       "bg": s:lightblack })
 call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
-call s:h("SignColumn",    {                     "bg": s:black })
+
+call s:h("SignColumn",    {                     "bg": s:lightblack })
 
 " statusline
-call s:h("StatusLine",    { "fg": s:white,      "bg": s:lightgrey })
+call s:h("StatusLine",    { "fg": s:white,      "bg": s:lightblack })
 call s:h("StatusLineNC",  { "fg": s:lightgrey,  "bg": s:black })
 call s:h("TabLine",       { "fg": s:lightgrey,  "bg": s:lightblack })
 call s:h("TabLineSel",    { "fg": s:white,  "bg": s:warmgrey,     "format": "bold" })
@@ -166,7 +169,7 @@ call s:h("Constant",      { "fg": s:purple })
 call s:h("Number",        { "fg": s:purple })
 call s:h("Float",         { "fg": s:purple })
 call s:h("Boolean",       { "fg": s:purple })
-call s:h("Character",     { "fg": s:yellow })
+call s:h("Character",     { "fg": s:yellow_char })
 call s:h("String",        { "fg": s:yellow })
 
 call s:h("Type",          { "fg": s:aqua })
@@ -181,6 +184,9 @@ call s:h("Statement",     { "fg": s:pink })
 call s:h("Operator",      { "fg": s:pink })
 call s:h("Label",         { "fg": s:pink })
 call s:h("Keyword",       { "fg": s:pink })
+call s:h("Conditional",   { "fg": s:green })
+call s:h("Repeat",        { "fg": s:green })
+call s:h("Exception",     { "fg": s:green })
 "        Conditional"
 "        Repeat"
 "        Exception"
@@ -199,11 +205,11 @@ call s:h("Tag",           { "fg": s:pink })
 "        Debug"
 
 call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
-call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
+call s:h("Comment",       { "fg": s:grey,     "format": "italic" })
 
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
-call s:h("Error",         { "fg": s:red, "bg": s:white })
+call s:h("Error",         { "fg": s:red})
 
 " NerdTree
 " --------

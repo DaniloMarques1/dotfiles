@@ -70,13 +70,14 @@ let s:colors = {}
 
 " Base colors.
 let s:colors.base0 = { 'gui': '#0c1014', 'cterm': 232 }
-let s:colors.base1 = { 'gui': '#11151c', 'cterm': 234 } " 233
+let s:colors.base1 = { 'gui': '#11151c', 'cterm': 234 } " 234
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
 let s:colors.base5 = { 'gui': '#599cab', 'cterm': 70  } " 81 70 == green
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 252 }
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 251 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
+let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 234 }
 
 " Other colors.
 let s:colors.red          = { 'gui': '#c23127', 'cterm': 124 }
@@ -93,6 +94,8 @@ let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
 let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190 }
 let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 } " 128 == purple
 let s:colors.number       = { 'gui': '#195466', 'cterm': 91 }
+let s:colors.warning      = { 'gui': '#195466', 'cterm': 3 }
+let s:colors.error        = { 'gui': '#c23127', 'cterm': 196 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -119,7 +122,7 @@ let s:background = 'base0'
 let s:linenr_background = 'base1'
 
 " Everything starts here.
-call s:Col('Normal', 'base6', s:background)
+call s:Col('Normal', 'base6', s:linenr_background)
 "call s:Col('Normal', 'base6', s:colors.blue)
 
 " Line, cursor and so on.
@@ -159,16 +162,16 @@ call s:Attr('Underlined', 'underline')
 call s:Col('Type', 'orange')
 
 " Stuff like 'require' in Ruby.
-call s:Col('PreProc', 'red')
+call s:Col('PreProc', 'green')
 
 " Tildes on the bottom of the page.
 call s:Col('NonText', 'blue')
 
 " Concealed stuff.
-call s:Col('Conceal', 'cyan', s:background)
+call s:Col('Conceal', 'cyan', s:linenr_background)
 
 " TODO and similar tags. FIXME, NOTE
-call s:Col('Todo', 'todo', s:background, s:linenr_background, s:linenr_background)
+call s:Col('Todo', 'todo', s:linenr_background, s:linenr_background, s:linenr_background)
 
 " The column separating vertical splits.
 call s:Col('VertSplit', 'base2', s:linenr_background)
@@ -211,7 +214,7 @@ call s:Col('Question', 'green')
 " Tab line.
 call s:Col('TabLineSel', 'base7', 'blue')  " the selected tab
 call s:Col('TabLine', 'base6', 'base2')     " the non-selected tabs
-call s:Col('TabLineFill', 'base0', 'base0') " the rest of the tab line
+call s:Col('TabLineFill', 'base1', 'base1') " the rest of the tab line
 
 " Spelling.
 call s:Col('SpellBad', 'base7', 'red')
@@ -232,8 +235,14 @@ call s:Col('DiffSubname', 'blue')
 " Directories (e.g. netrw).
 call s:Col('Directory', 'cyan')
 
-" Coc
-call s:Col('CocErrorHighlight', 'red')
+" Coc / LSP
+call s:Col('CocErrorHighlight',            'error')
+call s:Col('CocInfoHighlight',             'warning')
+call s:Col('CocWarningHighlight',          'warning')
+call s:Col('LspDiagnosticsDefaultError',   'error')
+call s:Col('LspDiagnosticsDefaultHint',    'warning')
+call s:Col('LspDiagnosticsDefaultWarning', 'warning')
+call s:Col('LspDiagnosticsUnderlineError', 'error')
 
 
 " Programming languages and filetypes ==========================================
@@ -284,6 +293,6 @@ unlet s:background
 unlet s:linenr_background
 
 hi Normal ctermbg=NONE
-hi SignColumn ctermbg=234
-hi TabLineFill ctermbg=234
-hi Todo ctermbg=234
+hi SignColumn ctermbg=NONE
+hi TabLineFill ctermbg=NONE
+hi Todo ctermbg=NONE
