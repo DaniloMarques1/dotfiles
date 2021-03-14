@@ -17,10 +17,20 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME=/home/fitz/android-studio/jre
+#export JAVA_HOME=/home/fitz/android-studio/jre
+#
+export MAVEN_HOME=/home/fitz/.local/share/apache-maven-3.6.3
+export CLANGD_HOME=/home/fitz/.local/share/clangd_10.0.0
 
-export PATH="/home/fitz/Documents/programming/markdown/:$PATH"
+#export PATH="/home/fitz/Documents/programming/markdown/:$PATH"
 export PATH="/home/fitz/Documents/programming/todopython/:$PATH"
+export PATH="/home/fitz/.local/share/kotlinc/bin/:$PATH"
+export PATH="$PATH:$CLANGD_HOME/bin/"
+export PATH="$PATH:$MAVEN_HOME/bin/"
+
+export PATH="/usr/local/go/bin/:$PATH"
+export PATH="$HOME/go/bin/:$PATH"
+export PATH="/home/fitz/.config/nvim/:$PATH"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -110,3 +120,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=nvim
+alias vim=nvim
+alias xd=xdg-open
+
+alias emulator_open="emulator @Nexus_5_API_30 -no-boot-anim -screen multi-touch -no-spapshot-save -no-snapshot-update-time -gpu host"
