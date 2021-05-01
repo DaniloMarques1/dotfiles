@@ -5,7 +5,7 @@
 hi clear
 if exists('syntax_on') | syntax reset | endif
 set background=dark
-let g:colors_name = 'gotham256'
+let g:colors_name = 'green'
 
 if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
   finish

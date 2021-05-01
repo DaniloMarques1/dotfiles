@@ -13,7 +13,7 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" trigger completition whe npress C-f
+" trigger completition whe npress C-space
 inoremap <silent><expr> <C-space> coc#refresh()
 
 " Use K to show documentation in preview window.
@@ -50,3 +50,5 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
