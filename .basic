@@ -1,5 +1,10 @@
 colorscheme green
 
+syntax on
+
+set guicursor=
+"set guicursor=i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150
+
 let mapleader = " "
 
 set autoindent
@@ -7,6 +12,8 @@ set autoread
 set number
 
 filetype indent on
+filetype plugin on
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -15,7 +22,6 @@ set smartindent
 set nobackup
 set nowritebackup
 set noswapfile
-set guicursor=
 set ls=0
 set autochdir
 
@@ -23,4 +29,8 @@ noremap <C-s> :w<cr>
 nnoremap <C-l> :noh<cr>
 nnoremap <leader>q :bd!<cr>
 
+nnoremap <C-Left> :tabprev<cr>
+nnoremap <C-Right> :tabnext<cr>
+
 autocmd FileType javascript,typescript setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType go setlocal shiftwidth=8 tabstop=8 noexpandtab

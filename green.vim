@@ -70,14 +70,14 @@ let s:colors = {}
 
 " Base colors.
 let s:colors.base0 = { 'gui': '#0c1014', 'cterm': 232 }
-let s:colors.base1 = { 'gui': '#11151c', 'cterm': 234 } " 234
+let s:colors.base1 = { 'gui': '#11151c', 'cterm': 233 } " 234
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
-let s:colors.base5 = { 'gui': '#599cab', 'cterm': 70  } " 81 70 == green
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 251 }
+let s:colors.base5 = { 'gui': '#599cab', 'cterm': 136 } " 81, blue 70,green, 136, orange (yellow) 
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 253 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
-let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 234 }
+let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 233 }
 
 " Other colors.
 let s:colors.red          = { 'gui': '#c23127', 'cterm': 124 }
@@ -88,14 +88,15 @@ let s:colors.violet       = { 'gui': '#4e5166', 'cterm': 60  }
 let s:colors.blue         = { 'gui': '#195466', 'cterm': 24  }
 let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 46  }
 let s:colors.green        = { 'gui': '#2aa889', 'cterm': 78  }
-let s:colors.comment      = { 'gui': '#195466', 'cterm': 45  } " 242
+let s:colors.comment      = { 'gui': '#195466', 'cterm': 243  } " 242 grey, blue 45
 let s:colors.todo         = { 'gui': '#195466', 'cterm': 164 }
 let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
-let s:colors.yellow_light = { 'gui': '#195466', 'cterm': 190 }
+let s:colors.green_cond   = { 'gui': '#195466', 'cterm': 148 } " 148, green 190 yello
 let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 } " 128 == purple
 let s:colors.number       = { 'gui': '#195466', 'cterm': 91 }
 let s:colors.warning      = { 'gui': '#195466', 'cterm': 3 }
 let s:colors.error        = { 'gui': '#c23127', 'cterm': 196 }
+let s:colors.blue_string  = { 'gui': '#c23127', 'cterm': 14 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -133,7 +134,7 @@ call s:Col('CursorColumn', '', 'base1')
 " Sign column, line numbers.
 call s:Col('LineNr', 'blue', s:linenr_background)
 call s:Col('CursorLineNr', 'base5', s:linenr_background)
-call s:Col('SignColumn', '', s:linenr_background)
+"call s:Col('SignColumn', '', s:linenr_background)
 call s:Col('ColorColumn', '', s:linenr_background)
 
 " Visual selection.
@@ -141,7 +142,7 @@ call s:Col('Visual', '', 'base3')
 
 " Easy-to-guess code elements.
 call s:Col('Comment', 'comment')
-call s:Col('String', 'purple')
+call s:Col('String', 'blue_string')
 call s:Col('Number', 'number')
 call s:Col('Statement', 'base5')
 call s:Col('Special', 'orange')
@@ -254,17 +255,17 @@ call s:Col('rubyStringDelimiter', 'green')
 " HTML (and often Markdown).
 call s:Col('htmlArg', 'blue')
 call s:Col('htmlItalic', 'magenta')
-call s:Col('htmlBold', 'yellow_light', '')
+call s:Col('htmlBold', 'green_cond', '')
 
 " Python                                                                                                                   
 call s:Col('pythonStatement', 'blue')
 
 "go(lang)
-call s:Col('goRepeat', 'yellow_light')
-call s:Col('goConditional', 'yellow_light')
+call s:Col('goRepeat', 'green_cond')
+call s:Col('goConditional', 'green_cond')
 
-call s:Col('Repeat', 'yellow_light')
-call s:Col('Conditional', 'yellow_light')
+call s:Col('Repeat', 'green_cond')
+call s:Col('Conditional', 'green_cond')
 
 " Plugin =======================================================================
 
@@ -296,3 +297,5 @@ hi Normal ctermbg=NONE
 hi SignColumn ctermbg=NONE
 hi TabLineFill ctermbg=NONE
 hi Todo ctermbg=NONE
+hi LineNr ctermbg=NONE
+hi CursorLineNr ctermbg=NONE
