@@ -227,14 +227,14 @@ call s:Col('SpellRare', 'base7', 'violet')
 call s:Col('DiffAdd', 'base7', 'green')
 call s:Col('DiffChange', 'base7', 'blue')
 call s:Col('DiffDelete', 'base7', 'red')
-call s:Col('DiffText', 'base7', 'cyan')
+call s:Col('DiffText', 'base7', 'green')
 call s:Col('DiffAdded', 'base5')
 call s:Col('DiffChanged', 'blue')
 call s:Col('DiffRemoved', 'red')
 call s:Col('DiffSubname', 'blue')
 
 " Directories (e.g. netrw).
-call s:Col('Directory', 'cyan')
+call s:Col('Directory', 'green')
 
 " Coc / LSP
 call s:Col('CocErrorHighlight',            'error')
@@ -270,8 +270,8 @@ call s:Col('Conditional', 'base5')
 " Plugin =======================================================================
 
 " GitGutter
-call s:Col('GitGutterAdd', 'base5', s:linenr_background)
-call s:Col('GitGutterChange', 'cyan', s:linenr_background)
+call s:Col('GitGutterAdd', 'green', s:linenr_background)
+call s:Col('GitGutterChange', 'green', s:linenr_background)
 call s:Col('GitGutterDelete', 'base5', s:linenr_background)
 call s:Col('GitGutterChangeDelete', 'magenta', s:linenr_background)
 
@@ -279,7 +279,7 @@ call s:Col('GitGutterChangeDelete', 'magenta', s:linenr_background)
 call s:Col('CtrlPNoEntries', 'base7', 'base5') " no entries
 call s:Col('CtrlPMatch', 'base5')               " matching part
 call s:Col('CtrlPPrtBase', 'blue')             " '>>>' prompt
-call s:Col('CtrlPPrtText', 'cyan')              " text in the prompt
+call s:Col('CtrlPPrtText', 'green')              " text in the prompt
 call s:Col('CtrlPPtrCursor', 'base7')           " cursor in the prompt
 
 " unite.vim
