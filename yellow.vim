@@ -75,7 +75,7 @@ let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
 let s:colors.base5 = { 'gui': '#599cab', 'cterm': 190 } " 81, blue 70,green, 136, orange (yellow) , 34 green, 190 yellow
-let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 255 }
+let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 253 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
 let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 233 }
 
