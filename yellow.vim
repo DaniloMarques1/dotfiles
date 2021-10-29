@@ -74,10 +74,10 @@ let s:colors.base1 = { 'gui': '#11151c', 'cterm': 233 } " 234
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
-let s:colors.base5 = { 'gui': '#599cab', 'cterm': 190 } " 81, blue 70,green, 136, orange (yellow) , 34 green, 190 yellow
+let s:colors.base5 = { 'gui': '#599cab', 'cterm': 226 } " 81, blue 70,green, 136, orange (yellow) , 34 green, 190 yellow
 let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 253 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
-let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 233 }
+let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 234 }
 
 " Other colors.
 let s:colors.red          = { 'gui': '#c23127', 'cterm': 124 }
@@ -88,7 +88,7 @@ let s:colors.violet       = { 'gui': '#4e5166', 'cterm': 60  }
 let s:colors.blue         = { 'gui': '#195466', 'cterm': 24  }
 let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 46  }
 let s:colors.green        = { 'gui': '#2aa889', 'cterm': 34  }
-let s:colors.comment      = { 'gui': '#195466', 'cterm': 244  } " 242 grey, blue 45
+let s:colors.comment      = { 'gui': '#195466', 'cterm': 107  } " 242 grey, blue 45, 148 green
 let s:colors.todo         = { 'gui': '#195466', 'cterm': 164 }
 let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
 let s:colors.green_cond   = { 'gui': '#195466', 'cterm': 190 } " 148, green 190 yello
@@ -96,7 +96,7 @@ let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 } " 128 == purple
 let s:colors.number       = { 'gui': '#195466', 'cterm': 121  }
 let s:colors.warning      = { 'gui': '#195466', 'cterm': 3 }
 let s:colors.error        = { 'gui': '#c23127', 'cterm': 196 }
-let s:colors.string       = { 'gui': '#c23127', 'cterm': 5 }
+let s:colors.string       = { 'gui': '#c23127', 'cterm': 173 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -176,7 +176,7 @@ call s:Col('Todo', 'todo', s:linenr_background, s:linenr_background, s:linenr_ba
 
 " The column separating vertical splits.
 call s:Col('VertSplit', 'base2', s:linenr_background)
-call s:Col('StatusLineNC', 'blue', 'base2')
+call s:Col('StatusLineNC', 'blue', 'base8')
 
 " Matching parenthesis.
 call s:Col('MatchParen', 'base6', 'orange')
@@ -206,7 +206,7 @@ call s:Col('WarningMsg', 'red')
 
 " Wild menu.
 " StatusLine determines the color of the non-active entries in the wild menu.
-call s:Col('StatusLine', 'base6', 'base2')
+call s:Col('StatusLine', 'base6', 'base8') " Background Use to be base2
 call s:Col('WildMenu', 'base7', 'cyan')
 
 " The 'Hit ENTER to continue prompt'.
@@ -214,8 +214,8 @@ call s:Col('Question', 'base5')
 
 " Tab line.
 call s:Col('TabLineSel', 'base7', 'blue')  " the selected tab
-call s:Col('TabLine', 'base6', 'base2')     " the non-selected tabs
-call s:Col('TabLineFill', 'base1', 'base1') " the rest of the tab line
+call s:Col('TabLine', 'base6', 'base8')     " the non-selected tabs
+call s:Col('TabLineFill', 'base1', 'base8') " the rest of the tab line
 
 " Spelling.
 call s:Col('SpellBad', 'base7', 'red')
