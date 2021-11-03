@@ -74,7 +74,7 @@ let s:colors.base1 = { 'gui': '#11151c', 'cterm': 233 } " 234
 let s:colors.base2 = { 'gui': '#091f2e', 'cterm': 17  }
 let s:colors.base3 = { 'gui': '#0a3749', 'cterm': 18  }
 let s:colors.base4 = { 'gui': '#1e6479', 'cterm': 31  }
-let s:colors.base5 = { 'gui': '#599cab', 'cterm': 226 } " 81, blue 70,green, 136, orange (yellow) , 34 green, 190 yellow
+let s:colors.base5 = { 'gui': '#599cab', 'cterm': 226 } " 81, blue 70,green, 136, orange (yellow) , 34 green, 190 yellow, 226 yellow
 let s:colors.base6 = { 'gui': '#99d1ce', 'cterm': 253 }
 let s:colors.base7 = { 'gui': '#d3ebe9', 'cterm': 194 }
 let s:colors.base8 = { 'gui': '#d3ebe9', 'cterm': 234 }
@@ -88,15 +88,15 @@ let s:colors.violet       = { 'gui': '#4e5166', 'cterm': 60  }
 let s:colors.blue         = { 'gui': '#195466', 'cterm': 24  }
 let s:colors.cyan         = { 'gui': '#33859E', 'cterm': 46  }
 let s:colors.green        = { 'gui': '#2aa889', 'cterm': 34  }
-let s:colors.comment      = { 'gui': '#195466', 'cterm': 107  } " 242 grey, blue 45, 148 green
+let s:colors.comment      = { 'gui': '#195466', 'cterm': 173 } " 242 grey, blue 45, 148 green
 let s:colors.todo         = { 'gui': '#195466', 'cterm': 164 }
 let s:colors.boolean      = { 'gui': '#195466', 'cterm': 97  }
-let s:colors.green_cond   = { 'gui': '#195466', 'cterm': 190 } " 148, green 190 yello
+let s:colors.green_cond   = { 'gui': '#195466', 'cterm': 226 } " 148, green 190 yellow, 226 yellow
 let s:colors.purple       = { 'gui': '#195466', 'cterm': 128 } " 128 == purple
-let s:colors.number       = { 'gui': '#195466', 'cterm': 121  }
-let s:colors.warning      = { 'gui': '#195466', 'cterm': 3 }
+let s:colors.number       = { 'gui': '#195466', 'cterm': 121 }
+let s:colors.warning      = { 'gui': '#195466', 'cterm': 3   }
 let s:colors.error        = { 'gui': '#c23127', 'cterm': 196 }
-let s:colors.string       = { 'gui': '#c23127', 'cterm': 173 }
+let s:colors.string       = { 'gui': '#c23127', 'cterm': 107 }
 
 " Neovim :terminal colors.
 let g:terminal_color_0  = get(s:colors.base0, 'gui')
@@ -160,7 +160,7 @@ call s:Col('Underlined', 'base5')
 call s:Attr('Underlined', 'underline')
 
 " Types, HTML attributes, Ruby constants (and class names).
-call s:Col('Type', 'orange')
+call s:Col('Type', 'base5') " Use to be orange
 
 " Stuff like 'require' in Ruby.
 call s:Col('PreProc', 'base5')
@@ -189,7 +189,7 @@ call s:Col('Folded', 'base6', 'blue')
 call s:Col('FoldColumn', 'base5', 'base3')
 
 " Searching.
-call s:Col('Search', 'base2', 'base5')
+call s:Col('Search', 'base2', 'orange')
 call s:Attr('IncSearch', 'reverse')
 
 " Popup menu.
