@@ -937,12 +937,12 @@ if s:t_Co >= 256
     hi PmenuThumb ctermfg=NONE ctermbg=243 cterm=NONE
     hi Question ctermfg=37 ctermbg=NONE cterm=bold
     hi Search ctermfg=136 ctermbg=NONE cterm=reverse
-    hi SignColumn ctermfg=247 ctermbg=NONE cterm=NONE
+    hi SignColumn ctermfg=247 ctermbg=234 cterm=NONE
     hi Visual ctermfg=243 ctermbg=235 cterm=reverse
     hi VisualNOS ctermfg=NONE ctermbg=236 cterm=reverse
     hi WarningMsg ctermfg=166 ctermbg=NONE cterm=bold
     hi WildMenu ctermfg=230 ctermbg=236 cterm=reverse
-    hi Comment ctermfg=242 ctermbg=NONE cterm=italic
+    hi Comment ctermfg=243 ctermbg=NONE cterm=italic
     hi Constant ctermfg=37 ctermbg=NONE cterm=NONE
     hi Error ctermfg=160 ctermbg=230 cterm=bold,reverse
     hi Identifier ctermfg=32 ctermbg=NONE cterm=NONE
