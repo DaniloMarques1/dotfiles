@@ -10,28 +10,34 @@
    ["#242424" "#e5786d" "#95e454" "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("3d2e532b010eeb2f5e09c79f0b3a277bfc268ca91a59cdda7ffd056b868a03bc" default))
+   '("90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" "3d2e532b010eeb2f5e09c79f0b3a277bfc268ca91a59cdda7ffd056b868a03bc" default))
  '(display-line-numbers-type 'relative)
+ '(frame-brackground-mode 'dark)
  '(menu-bar-mode nil)
- '(package-selected-packages '(magit gruber-darker-theme evil))
+ '(package-selected-packages '(lsp-ui lsp-mode magit gruber-darker-theme evil))
+ '(toggle-scroll-bar -1)
  '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ ;; removing toolbar
 
 (require 'evil)
 (evil-mode 1)
 
-(setq evil-insert-state-cursor '(box "yellow") evil-normal-state-cursor '(box "yellow"))
+;;(require 'lsp-mode)
+;;(lsp-mode 1)
+;;(add-hook 'go-mode-hook 'lsp)
 
-(set-face-attribute 'default nil :font "Iosevka-12")
+(setq evil-insert-state-cursor '((bar . 3) "yellow") evil-normal-state-cursor '(box "yellow"))
+
+(set-face-attribute 'default nil :font "Iosevka Fixed")
 
 (setq inhibit-startup-screen t)
-(menu-bar-mode -1)
 (toggle-scroll-bar -1)
-(tool-bar-mode -1)
 
-(setq auto-save-default nil)
+(global-display-line-numbers-mode) ;; set number
+
+(setq auto-save-default nil) ;; remove temp files
+(setq make-backup-files nil)
+
+
+
+(setq compile-command "") 
