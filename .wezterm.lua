@@ -2,12 +2,14 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font 'Hack Nerd Font Mono'
+--config.font = wezterm.font 'Hack Nerd Font Mono'
+config.font = wezterm.font 'JetBrains Mono'
 config.color_scheme = 'Bim (Gogh)'
-config.font_size = 12
+config.font_size = 12.0
+config.line_height = 1.1
 config.adjust_window_size_when_changing_font_size = false
 config.tab_bar_at_bottom = true
-config.front_end = "Software"
+config.front_end = "WebGpu"
 
 config.window_padding = {
   left = 0,
@@ -15,8 +17,10 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+
 config.colors = {
-	background = '#1e1e2e'
+	background = '#141414',
+	cursor_bg = '#D41CDD',
 }
 
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
