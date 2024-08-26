@@ -201,6 +201,7 @@ local colorscheme = function()
 	require('ayu').setup({
 		overrides = {
 			WinSeparator = { fg = "#ffffff" },
+			LineNr = {fg = "#51607b"}
 		},
 	})
 
