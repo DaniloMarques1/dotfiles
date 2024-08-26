@@ -15,12 +15,13 @@ vim.cmd[[filetype indent plugin on]]
 vim.opt.tabstop=4
 vim.opt.shiftwidth=4
 vim.o.splitright=true
-vim.o.ls = 1
+vim.o.ls = 3
 vim.o.statusline = '    %f %m | %l:%c %L%=%P'
 vim.opt.backup = false
 vim.opt.swapfile = false
 vim.opt.writebackup = false
 vim.opt.autoread = true
+vim.opt.hlsearch=false
 
 -- use inside of a terminal
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
@@ -97,13 +98,22 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
 	vim.keymap.set('n', '<space>d', vim.diagnostic.setloclist, opts)
+	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 end
 
 local configureLsp = function()
+	local servers = {"gopls", "tsserver", "jsonls", "dockerls", "eslint", "docker_compose_language_service"}
+	require("mason").setup()
+	require("mason-lspconfig").setup({
+		ensure_installed = servers
+	})
+
 	local lspConfig = require('lspconfig')
-	lspConfig.gopls.setup{
-		on_attach = on_attach,
-	}
+	for _, server in ipairs(servers) do
+		lspConfig[server].setup {
+			on_attach = on_attach
+		}
+	end
 
 	vim.diagnostic.config {
 		virtual_text = false,
@@ -112,69 +122,97 @@ local configureLsp = function()
 	}
 
 	vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.ts lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.tsx lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.js lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.jsx lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.ts lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.tsx lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.js lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.jsx lua vim.lsp.buf.format()]]
 	vim.cmd [[autocmd BufWritePre *.html lua vim.lsp.buf.format()]]
 	vim.cmd [[autocmd BufWritePre *.css lua vim.lsp.buf.format()]]
 
-	-- vim.api.nvim_create_autocmd('BufWritePre', {
-	-- 	pattern = {'*.tsx', '*.ts', '*.js', '*.jsx'},
-	-- 	command = 'silent! EslintFixAll',
-	-- 	group = vim.api.nvim_create_augroup('Format', {})
-	-- })
+	vim.api.nvim_create_autocmd('BufWritePre', {
+		pattern = {'*.tsx', '*.ts', '*.js', '*.jsx'},
+		command = 'silent! EslintFixAll',
+		group = vim.api.nvim_create_augroup('Format', {})
+	})
 	--
+	--
+	-- Set up nvim-cmp.
+	-- local cmp = require'cmp'
+	-- cmp.setup({
+	-- 	mapping = cmp.mapping.preset.insert({
+	-- 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+	-- 		['<C-f>'] = cmp.mapping.scroll_docs(4),
+	-- 		['<C-Space>'] = cmp.mapping.complete(),
+	-- 		['<C-e>'] = cmp.mapping.abort(),
+	-- 		['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	-- 	}),
+	-- 	sources = cmp.config.sources({
+	-- 		{ name = 'nvim_lsp' },
+	-- 		{ name = 'nvim-path' },
+	-- 		{ name = 'buffer' },
+	-- 	})
+	-- })
 end
 
-local configureTelescope = function() 
-	-- telescope
-	-- You dont need to set any of these options. These are the default ones. Only
-	-- the loading is important
-	local telescope = require('telescope')
-	telescope.setup {
-		extensions = {
-			fzf = {
-				fuzzy = true,                    -- false will only do exact matching
-				override_generic_sorter = true,  -- override the generic sorter
-				override_file_sorter = true,     -- override the file sorter
-				case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-				-- the default case_mode is "smart_case"
-			}
-		}
-	}
-	-- To get fzf loaded and working with telescope, you need to call
-	-- load_extension, somewhere after setup function:
-	telescope.load_extension('fzf')
-
-	local builtin = require("telescope.builtin")
-	vim.keymap.set("n", "<C-p>", function()
-		builtin.find_files(require('telescope.themes').get_dropdown({}))
-	end, {})
-	vim.keymap.set("n", "<leader>bb", function()
-		builtin.buffers(require('telescope.themes').get_dropdown({}))
-	end, {})
-	--vim.keymap.set("n", "<C-p>", function()
-	--	builtin.git_files(require('telescope.themes').get_ivy({}))
-	--end, {})
-	vim.keymap.set("n", "<leader>gg", function()
-		builtin.live_grep(require('telescope.themes').get_dropdown({}))
-	end, {})
-	vim.keymap.set("n", "<leader>rf", function()
-		builtin.lsp_references(require('telescope.themes').get_dropdown({}))
-	end, {})
+local configureFzf = function()
+	vim.api.nvim_set_keymap('n', '<C-p>', ':Files<CR>', { noremap = true, silent = true })
+	vim.api.nvim_set_keymap('n', '<leader>gg', ':Rg<CR>', { noremap = true, silent = true })
 end
+
+-- local configureTelescope = function() 
+-- 	-- telescope
+-- 	-- You dont need to set any of these options. These are the default ones. Only
+-- 	-- the loading is important
+-- 	local telescope = require('telescope')
+-- 	telescope.setup {
+-- 		extensions = {
+-- 			fzf = {
+-- 				fuzzy = true,                    -- false will only do exact matching
+-- 				override_generic_sorter = true,  -- override the generic sorter
+-- 				override_file_sorter = true,     -- override the file sorter
+-- 				case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+-- 				-- the default case_mode is "smart_case"
+-- 			}
+-- 		}
+-- 	}
+-- 	-- To get fzf loaded and working with telescope, you need to call
+-- 	-- load_extension, somewhere after setup function:
+-- 	telescope.load_extension('fzf')
+--
+-- 	local builtin = require("telescope.builtin")
+-- 	vim.keymap.set("n", "<C-p>", function()
+-- 		builtin.find_files(require('telescope.themes').get_dropdown({}))
+-- 	end, {})
+-- 	vim.keymap.set("n", "<leader>bb", function()
+-- 		builtin.buffers(require('telescope.themes').get_dropdown({}))
+-- 	end, {})
+-- 	--vim.keymap.set("n", "<C-p>", function()
+-- 	--	builtin.git_files(require('telescope.themes').get_ivy({}))
+-- 	--end, {})
+-- 	vim.keymap.set("n", "<leader>gg", function()
+-- 		builtin.live_grep(require('telescope.themes').get_dropdown({}))
+-- 	end, {})
+-- 	vim.keymap.set("n", "<leader>rf", function()
+-- 		builtin.lsp_references(require('telescope.themes').get_dropdown({}))
+-- 	end, {})
+-- end
 
 local colorscheme = function()
-	vim.cmd('colorscheme vscode')
-	vim.cmd('hi Normal guibg=#1c1c1c')
+	require('ayu').setup({
+		overrides = {
+			WinSeparator = { fg = "#ffffff" },
+		},
+	})
+
+	vim.cmd('colorscheme ayu')
 end
 
 
 colorscheme()
---configureTreeSitter()
-configureTelescope()
+configureTreeSitter()
+-- configureTelescope()
 configureLsp()
+configureFzf()
 
 function Formatcode()
 	-- Get the current buffer handle
