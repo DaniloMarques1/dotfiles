@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("fitz.colorscheme")
 require("fitz.lsp")
 require("fitz.telescope")
@@ -5,7 +7,6 @@ require("fitz.treesitter")
 require("fitz.oil")
 require("fitz.evil_lualine")
 
-vim.g.mapleader = " "
 --vim.opt.guicursor=''
 --vim.opt.fillchars:append { eob = " " }
 vim.keymap.set('n', '<C-s>', ':w<cr>')
@@ -33,19 +34,3 @@ vim.opt.hlsearch=false
 -- use inside of a terminal
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 vim.cmd [[set hidden]]
-vim.cmd [[let g:netrw_liststyle = 3]]
-vim.cmd [[let g:netrw_browse_split = 4]]
---vim.cmd [[let g:netrw_keepdir = 0]]
-vim.cmd [[let g:netrw_altv = 1]]
-vim.cmd [[let g:netrw_banner = 0]]
-vim.cmd [[let g:netrw_list_hide=netrw_gitignore#Hide()]]
-
-function ToggleNetrw()
-    if vim.bo.filetype == 'netrw' then
-        vim.cmd('q')
-    else
-        vim.cmd('Vex!')
-    end
-end
-
-vim.api.nvim_set_keymap('n', '<C-n>', ':lua ToggleNetrw()<CR>', { silent = true })
