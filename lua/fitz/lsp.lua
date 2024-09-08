@@ -27,7 +27,7 @@ local configureLsp = function()
 
 	vim.diagnostic.config {
 		virtual_text = false,
-		signs = false,
+		signs = true,
 		underline = false,
 	}
 
