@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
 end
 
 local configureLsp = function()
-	local servers = {"gopls", "tsserver", "jsonls", "dockerls", "eslint", "docker_compose_language_service"}
+	local servers = {"gopls", "ts_ls", "jsonls", "dockerls", "eslint", "docker_compose_language_service"}
 	require("mason").setup()
 	require("mason-lspconfig").setup({
 		ensure_installed = servers
@@ -26,8 +26,8 @@ local configureLsp = function()
 	end
 
 	vim.diagnostic.config {
-		virtual_text = false,
-		signs = true,
+		virtual_text = true,
+		signs = false,
 		underline = false,
 	}
 

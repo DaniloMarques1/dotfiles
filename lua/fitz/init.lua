@@ -1,5 +1,4 @@
-vim.g.mapleader = " "
-
+require("fitz.lazy")
 require("fitz.colorscheme")
 require("fitz.lsp")
 require("fitz.telescope")
@@ -15,6 +14,7 @@ vim.keymap.set('n', '<leader>q', ':bd<cr>')
 vim.o.number=false
 vim.cmd [[map <C-Left> :tabprev<cr>]]
 vim.cmd [[map <C-Right> :tabnext<cr>]]
+vim.opt.relativenumber = true
 
 vim.cmd[[filetype on]]
 vim.cmd[[filetype indent on]]
