@@ -16,9 +16,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"nvim-telescope/telescope.nvim",
-	"nvim-lua/plenary.nvim",
-	"nvim-telescope/telescope-fzf-native.nvim",
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-fzf-native.nvim",
+			"nvim-tree/nvim-web-devicons" 
+		}
+	},
 	"tpope/vim-fugitive",
 	"neovim/nvim-lspconfig",
 	'williamboman/mason.nvim',
@@ -31,6 +36,10 @@ require("lazy").setup({
 	'hrsh7th/cmp-buffer',
 	'stevearc/oil.nvim',
 	'nvim-lualine/lualine.nvim',
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	-- trying this out for sql queries
+	'tpope/vim-dadbod',
+	'kristijanhusak/vim-dadbod-ui',
+	'kristijanhusak/vim-dadbod-completion',
 })
 

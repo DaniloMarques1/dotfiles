@@ -1,6 +1,3 @@
--- Eviline config for lualine
--- Author: shadmansaleh
--- Credit: glepnir
 local lualine = require('lualine')
 
 -- Color table for highlights
@@ -17,6 +14,7 @@ local colors = {
   magenta  = '#c678dd',
   blue     = '#51afef',
   red      = '#ec5f67',
+  normal   = '#131313',
 }
 
 local conditions = {
@@ -80,21 +78,19 @@ end
 
 ins_left {
   function()
-    return '▊'
+	  return ' '
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
-  padding = { left = 0, right = 1 }, -- We don't need space before this
+  color = { bg = colors.normal, fg = colors.blue }, -- Sets highlighting of component
+  padding = { left = 0, right = 0 }, -- We don't need space before this
 }
 
 ins_left {
   -- mode component
-  function()
-    return ''
-  end,
+  'mode',
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.red,
+      n = colors.blue,
       i = colors.green,
       v = colors.blue,
       [''] = colors.blue,
@@ -115,21 +111,16 @@ ins_left {
       ['!'] = colors.red,
       t = colors.red,
     }
-    return { fg = mode_color[vim.fn.mode()] }
+    return { bg= colors.normal, fg = mode_color[vim.fn.mode()] }
   end,
   padding = { right = 1 },
 }
 
---ins_left {
---  -- filesize component
---  'filesize',
---  cond = conditions.buffer_not_empty,
---}
-
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
+  color = { fg = colors.fg, gui = 'bold' },
+  path = 1
 }
 
 ins_left { 'location' }

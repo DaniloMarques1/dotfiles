@@ -2,7 +2,7 @@ local colorscheme = function()
 	require("catppuccin").setup {
 		color_overrides = {
 			all = {
-				text = "#ffffff",
+				text = "#c7c7c7",
 			},
 			mocha = {
 				base = "#131313",

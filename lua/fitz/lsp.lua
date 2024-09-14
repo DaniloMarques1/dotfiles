@@ -12,7 +12,7 @@ local on_attach = function(client, bufnr)
 end
 
 local configureLsp = function()
-	local servers = {"gopls", "ts_ls", "jsonls", "dockerls", "eslint", "docker_compose_language_service"}
+	local servers = {"gopls", "ts_ls", "jsonls", "dockerls", "eslint", "docker_compose_language_service", "lua_ls"}
 	require("mason").setup()
 	require("mason-lspconfig").setup({
 		ensure_installed = servers
@@ -54,7 +54,7 @@ local configureLsp = function()
 			['<C-f>'] = cmp.mapping.scroll_docs(4),
 			['<C-Space>'] = cmp.mapping.complete(),
 			['<C-e>'] = cmp.mapping.abort(),
-			['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+			['<C-s>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		}),
 		sources = cmp.config.sources({
 			{ name = 'nvim_lsp' },
@@ -62,7 +62,15 @@ local configureLsp = function()
 			{ name = 'buffer' },
 		})
 	})
+
+	cmp.setup.filetype({ 'sql' }, {
+		sources = {
+			{ name = 'vim-dadbod-completion' },
+			{ name = 'buffer' },
+		},
+	})
 end
+
 
 configureLsp()
 

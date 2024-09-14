@@ -4,7 +4,9 @@ require("fitz.lsp")
 require("fitz.telescope")
 require("fitz.treesitter")
 require("fitz.oil")
-require("fitz.evil_lualine")
+require("fitz.lualine")
+require("fitz.dbui")
+require("fitz.beautifyjson")
 
 --vim.opt.guicursor=''
 --vim.opt.fillchars:append { eob = " " }
