@@ -1,4 +1,5 @@
 local on_attach = function(client, bufnr)
+	vim.cmd[[set completeopt=menu]]
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	client.server_capabilities.semanticTokensProvider = {}
@@ -12,40 +13,45 @@ local on_attach = function(client, bufnr)
 end
 
 local configureLsp = function()
-	local servers = {"gopls", "ts_ls", "jsonls", "dockerls", "eslint", "docker_compose_language_service", "lua_ls"}
 	require("mason").setup()
-	require("mason-lspconfig").setup({
-		ensure_installed = servers
-	})
-
-	local lspConfig = require('lspconfig')
-	for _, server in ipairs(servers) do
-		lspConfig[server].setup {
-			on_attach = on_attach
-		}
-	end
-
-	vim.diagnostic.config {
-		virtual_text = true,
-		signs = false,
-		underline = false,
+	require('mason-lspconfig').setup {
+		handlers = {
+			function(server_name)
+				-- This handles overriding only values explicitly passed
+				-- by the server configuration above. Useful when disabling
+				-- certain features of an LSP (for example, turning off formatting for ts_ls)
+				--server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+				require('lspconfig')[server_name].setup {
+					on_attach = on_attach,
+				}
+			end,
+		},
 	}
 
-	vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
+	vim.diagnostic.config {
+		virtual_text = false,
+		signs = false,
+		underline = true,
+	}
+
+	-- vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
 	-- vim.cmd [[autocmd BufWritePre *.ts lua vim.lsp.buf.format()]]
 	-- vim.cmd [[autocmd BufWritePre *.tsx lua vim.lsp.buf.format()]]
 	-- vim.cmd [[autocmd BufWritePre *.js lua vim.lsp.buf.format()]]
 	-- vim.cmd [[autocmd BufWritePre *.jsx lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.html lua vim.lsp.buf.format()]]
-	vim.cmd [[autocmd BufWritePre *.css lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.html lua vim.lsp.buf.format()]]
+	-- vim.cmd [[autocmd BufWritePre *.css lua vim.lsp.buf.format()]]
+	--
+	-- vim.api.nvim_create_autocmd('BufWritePre', {
+	-- 	pattern = {'*.tsx', '*.ts', '*.js', '*.jsx'},
+	-- 	command = 'silent! EslintFixAll',
+	-- 	group = vim.api.nvim_create_augroup('Format', {})
+	-- })
 
-	vim.api.nvim_create_autocmd('BufWritePre', {
-		pattern = {'*.tsx', '*.ts', '*.js', '*.jsx'},
-		command = 'silent! EslintFixAll',
-		group = vim.api.nvim_create_augroup('Format', {})
-	})
-	--
-	--
+	ToggleCmp()
+end
+
+function ToggleCmp()
 	-- Set up nvim-cmp.
 	local cmp = require'cmp'
 	cmp.setup({

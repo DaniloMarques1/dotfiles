@@ -11,6 +11,15 @@ function configureTelescopne()
 				case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
 				-- the default case_mode is "smart_case"
 			}
+		},
+		pickers = {
+			buffers = {
+				mappings = {
+					n = {
+						["<c-d>"] = "delete_buffer",
+					},
+				},
+			}
 		}
 	}
 	-- To get fzf loaded and working with telescope, you need to call
@@ -20,13 +29,15 @@ function configureTelescopne()
 	local builtin = require("telescope.builtin")
 	vim.keymap.set("n", "<C-p>", function()
 		-- builtin.find_files()
-		builtin.find_files(require('telescope.themes').get_ivy({hidden = true}))
+		builtin.find_files(require('telescope.themes').get_dropdown({hidden = false}))
 	end, {})
 	vim.keymap.set("n", "<leader>bb", function()
-		builtin.buffers(require('telescope.themes').get_ivy({}))
+		builtin.buffers(require('telescope.themes').get_dropdown({
+			sort_lastused=true,
+		}))
 	end, {})
 	vim.keymap.set("n", "<leader>gg", function()
-		builtin.live_grep(require('telescope.themes').get_ivy({}))
+		builtin.live_grep(require('telescope.themes').get_dropdown({}))
 	end, {})
 	vim.keymap.set("n", "<leader>rf", function()
 		builtin.lsp_references(require('telescope.themes').get_ivy({}))

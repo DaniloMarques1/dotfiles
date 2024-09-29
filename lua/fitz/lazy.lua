@@ -21,25 +21,38 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-fzf-native.nvim",
-			"nvim-tree/nvim-web-devicons" 
 		}
 	},
 	"tpope/vim-fugitive",
-	"neovim/nvim-lspconfig",
-	'williamboman/mason.nvim',
-	'williamboman/mason-lspconfig.nvim',
-	"Mofiqul/vscode.nvim",
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			'williamboman/mason.nvim',
+			'williamboman/mason-lspconfig.nvim',
+		}
+	},
 	"nvim-treesitter/nvim-treesitter",
-	'hrsh7th/cmp-nvim-lsp',
-	'hrsh7th/nvim-cmp',
-	'hrsh7th/cmp-path',
-	'hrsh7th/cmp-buffer',
+	{
+		'hrsh7th/nvim-cmp',
+		dependencies = {
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-buffer',
+		}
+	},
+	{
+		'stevearc/conform.nvim',
+		opts = {},
+	},
 	'stevearc/oil.nvim',
 	'nvim-lualine/lualine.nvim',
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	-- trying this out for sql queries
-	'tpope/vim-dadbod',
-	'kristijanhusak/vim-dadbod-ui',
-	'kristijanhusak/vim-dadbod-completion',
+	{
+		'tpope/vim-dadbod',
+		dependencies = {
+			'kristijanhusak/vim-dadbod-ui',
+			'kristijanhusak/vim-dadbod-completion',
+		}
+	}
 })
 
