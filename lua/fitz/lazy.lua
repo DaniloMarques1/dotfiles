@@ -23,6 +23,7 @@ require("lazy").setup({
 			"nvim-telescope/telescope-fzf-native.nvim",
 		}
 	},
+	'ibhagwan/fzf-lua',
 	"tpope/vim-fugitive",
 	{
 		"neovim/nvim-lspconfig",
