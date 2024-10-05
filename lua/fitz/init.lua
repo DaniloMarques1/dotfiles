@@ -1,7 +1,6 @@
 require("fitz.lazy")
 require("fitz.colorscheme")
 require("fitz.lsp")
---require("fitz.telescope")
 require("fitz.fzf")
 require("fitz.treesitter")
 require("fitz.oil")
@@ -11,7 +10,7 @@ require("fitz.beautify")
 require("fitz.dbcsvexporter")
 require("fitz.conform")
 
---vim.opt.guicursor=''
+vim.opt.guicursor=''
 vim.opt.fillchars:append { eob = " " }
 vim.keymap.set('n', '<C-s>', ':w<cr>')
 vim.keymap.set('n', '<C-l>q', ':noh<cr>')
@@ -37,3 +36,10 @@ vim.o.hlsearch=false
 -- use inside of a terminal
 vim.cmd 'tnoremap <Esc> <C-\\><C-n>'
 vim.cmd [[set hidden]]
+
+-- Remap copy to clipboard
+vim.api.nvim_set_keymap('n', 'gy', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'gy', '"+y', { noremap = true, silent = true })
+
+-- Remap paste from clipboard
+vim.api.nvim_set_keymap('n', 'gp', '"+p', { noremap = true, silent = true })

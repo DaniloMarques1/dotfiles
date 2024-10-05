@@ -16,13 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-fzf-native.nvim",
-		}
-	},
 	'ibhagwan/fzf-lua',
 	"tpope/vim-fugitive",
 	{
@@ -33,14 +26,6 @@ require("lazy").setup({
 		}
 	},
 	"nvim-treesitter/nvim-treesitter",
-	{
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-buffer',
-		}
-	},
 	{
 		'stevearc/conform.nvim',
 		opts = {},

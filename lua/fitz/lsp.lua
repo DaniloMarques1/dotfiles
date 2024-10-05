@@ -2,6 +2,9 @@ local on_attach = function(client, bufnr)
 	vim.cmd[[set completeopt=menu]]
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	vim.api.nvim_set_keymap('i', '<C-k>', '<C-x><C-o>', { noremap = true, silent = true })
+	vim.api.nvim_set_keymap('i', '<C-s>', 'pumvisible() ? "<C-y>" : "<C-s>"', { noremap = true, expr = true, silent = true })
+
 	client.server_capabilities.semanticTokensProvider = {}
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -10,6 +13,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
 	vim.keymap.set('n', '<space>d', vim.diagnostic.setloclist, opts)
 	vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+	vim.keymap.set('n', '<space>im', vim.lsp.buf.implementation, opts)
 end
 
 local configureLsp = function()
@@ -34,21 +38,7 @@ local configureLsp = function()
 		underline = true,
 	}
 
-	-- vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.ts lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.tsx lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.js lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.jsx lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.html lua vim.lsp.buf.format()]]
-	-- vim.cmd [[autocmd BufWritePre *.css lua vim.lsp.buf.format()]]
-	--
-	-- vim.api.nvim_create_autocmd('BufWritePre', {
-	-- 	pattern = {'*.tsx', '*.ts', '*.js', '*.jsx'},
-	-- 	command = 'silent! EslintFixAll',
-	-- 	group = vim.api.nvim_create_augroup('Format', {})
-	-- })
-
-	ToggleCmp()
+	-- ToggleCmp()
 end
 
 function ToggleCmp()
@@ -65,8 +55,17 @@ function ToggleCmp()
 		sources = cmp.config.sources({
 			{ name = 'nvim_lsp' },
 			{ name = 'nvim-path' },
-			{ name = 'buffer' },
-		})
+			{ name = 'buffer' }
+		}),
+		config = {
+			disallow_fuzzy_matching = false,
+			disallow_fullfuzzy_matching = false
+		},
+		performance = {
+			max_view_entries = 12,
+			debounce = 0,
+			throttle = 0,
+		},
 	})
 
 	cmp.setup.filetype({ 'sql' }, {
@@ -77,6 +76,4 @@ function ToggleCmp()
 	})
 end
 
-
 configureLsp()
-
